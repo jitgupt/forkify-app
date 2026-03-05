@@ -7,7 +7,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist --no-scope-hoist"
   },
-  "author": "Jitendra",
+  "author": "Jitendra Gupta",
   "license": "ISC",
   "dependencies": {
     "core-js": "^3.24.1",

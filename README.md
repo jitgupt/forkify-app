@@ -2,6 +2,8 @@
 
 A modern, interactive recipe search application built with vanilla JavaScript, Parcel, and the Forkify API. Search for recipes, view detailed instructions, and save your favorite recipes to a personalized bookmarks collection.
 
+> **Note**: This project is deployed on Netlify with continuous integration/continuous deployment (CI/CD) enabled for automatic updates.
+
 ## Features
 
 - 🔍 **Recipe Search**: Search from a vast database of recipes via the Forkify API
