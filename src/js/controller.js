@@ -8,6 +8,27 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 
+// Import SVG sprite so Parcel bundles it
+import icons from 'url:../img/icons.svg';
+
+// Fix SVG icon references for production
+const fixSVGIcons = () => {
+  document.querySelectorAll('use').forEach(el => {
+    const href = el.getAttribute('href');
+    if (href?.includes('icon-')) {
+      const iconId = href.split('#')[1];
+      el.setAttribute('href', `${icons}#${iconId}`);
+    }
+  });
+};
+
+// Run on initial load
+fixSVGIcons();
+
+// Also run when new elements are added dynamically
+const observer = new MutationObserver(fixSVGIcons);
+observer.observe(document.body, { childList: true, subtree: true });
+
 import 'core-js/stable'; // Polyfiling everything else
 import 'regenerator-runtime/runtime'; // Polyfiling async/await
 
