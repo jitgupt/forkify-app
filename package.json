@@ -12,10 +12,10 @@
   "dependencies": {
     "core-js": "^3.24.1",
     "fraction.js": "^5.3.4",
+    "parcel": "^2.7.0",
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.7.0"
+    "@parcel/transformer-sass": "^2.7.0"
   }
 }

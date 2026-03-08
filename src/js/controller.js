@@ -8,29 +8,35 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 
-// Import SVG sprite so Parcel bundles it
-import icons from 'url:../img/icons.svg';
-
-console.log("icons: ", icons);
-
 // Fix SVG icon references for production
 const fixSVGIcons = () => {
+  // Get the base URL for production
+  const isDev = window.location.hostname === 'localhost';
+  const iconsPath = isDev ? 'src/img/icons.svg' : './img/icons.svg';
+  
   document.querySelectorAll('use').forEach(el => {
     const href = el.getAttribute('href');
-    console.log(`href: ${href}`);
     if (href?.includes('icon-')) {
       const iconId = href.split('#')[1];
-      el.setAttribute('href', `${icons}#${iconId}`);
+      el.setAttribute('href', `${iconsPath}#${iconId}`);
+      console.log(`Updated SVG to: ${iconsPath}#${iconId}`);
     }
   });
 };
 
-// Run on initial load
-fixSVGIcons();
+// Wait for DOM to be ready before fixing SVG icons
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', fixSVGIcons);
+} else {
+  fixSVGIcons();
+}
 
 // Also run when new elements are added dynamically
 const observer = new MutationObserver(fixSVGIcons);
 observer.observe(document.body, { childList: true, subtree: true });
+
+import 'core-js/stable'; // Polyfiling everything else
+import 'regenerator-runtime/runtime'; // Polyfiling async/await
 
 import 'core-js/stable'; // Polyfiling everything else
 import 'regenerator-runtime/runtime'; // Polyfiling async/await
