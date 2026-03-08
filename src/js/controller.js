@@ -11,6 +11,8 @@ import addRecipeView from './views/addRecipeView.js';
 // Import SVG sprite so Parcel bundles it
 import icons from 'url:src/img/icons.svg';
 
+console.log("icons: ", icons);
+
 // Fix SVG icon references for production
 const fixSVGIcons = () => {
   document.querySelectorAll('use').forEach(el => {
