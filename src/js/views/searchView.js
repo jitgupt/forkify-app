@@ -1,6 +1,6 @@
 class SearchView {
   _parentElement = document.querySelector('.search');
-
+  
   getQuery() {
     const query = this._parentElement.querySelector('.search__field').value;
     this._clearInput();
@@ -12,6 +12,7 @@ class SearchView {
   }
 
   addHandlerSearch(handler) {
+    console.log("this._parentElement: ", this._parentElement);
     this._parentElement.addEventListener('submit', function (e) {
       e.preventDefault();
       handler();
