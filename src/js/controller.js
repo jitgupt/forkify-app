@@ -17,7 +17,8 @@ console.log("icons: ", icons);
 const fixSVGIcons = () => {
   document.querySelectorAll('use').forEach(el => {
     const href = el.getAttribute('href');
-    if (href?.includes('icons-')) {
+    console.log(`href: ${href}`);
+    if (href?.includes('icon-')) {
       const iconId = href.split('#')[1];
       el.setAttribute('href', `${icons}#${iconId}`);
     }
