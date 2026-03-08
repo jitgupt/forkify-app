@@ -15,7 +15,7 @@ import icons from 'url:../img/icons.svg';
 const fixSVGIcons = () => {
   document.querySelectorAll('use').forEach(el => {
     const href = el.getAttribute('href');
-    if (href?.includes('icon-')) {
+    if (href?.includes('icons-')) {
       const iconId = href.split('#')[1];
       el.setAttribute('href', `${icons}#${iconId}`);
     }
