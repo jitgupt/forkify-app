@@ -9,7 +9,7 @@ import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 
 // Import SVG sprite so Parcel bundles it
-import icons from 'url:../img/icons.svg';
+import icons from 'url:src/img/icons.svg';
 
 // Fix SVG icon references for production
 const fixSVGIcons = () => {
