@@ -8,24 +8,6 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 
-// Import images for Parcel to bundle
-import favicon from 'url:../img/favicon.png';
-import logo from 'url:../img/logo.png';
-import icons from 'url:../img/icons.svg';
-
-// Set the image paths
-document.querySelector('#favicon').href = favicon;
-document.querySelector('.header__logo').src = logo;
-
-// Fix SVG icon references for production
-document.querySelectorAll('use').forEach(el => {
-  const href = el.getAttribute('href');
-  if (href?.includes('icon-')) {
-    const iconId = href.split('#')[1];
-    el.setAttribute('href', `${icons}#${iconId}`);
-  }
-});
-
 import 'core-js/stable'; // Polyfiling everything else
 import 'regenerator-runtime/runtime'; // Polyfiling async/await
 
