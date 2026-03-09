@@ -4,6 +4,8 @@ A modern, interactive recipe search application built with vanilla JavaScript, P
 
 > **Note**: This project is deployed on Netlify with continuous integration/continuous deployment (CI/CD) enabled for automatic updates.
 
+🚀 **Live App**: https://forkify-jiit.netlify.app/
+
 ## Features
 
 - 🔍 **Recipe Search**: Search from a vast database of recipes via the Forkify API
