@@ -28,15 +28,15 @@ const fixSVGIcons = () => {
 };
 
 // Wait for DOM to be ready before fixing SVG icons
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', fixSVGIcons);
-} else {
-  fixSVGIcons();
-}
+// if (document.readyState === 'loading') {
+//   document.addEventListener('DOMContentLoaded', fixSVGIcons);
+// } else {
+//   fixSVGIcons();
+// }
 
-// Also run when new elements are added dynamically
-const observer = new MutationObserver(fixSVGIcons);
-observer.observe(document.body, { childList: true, subtree: true });
+// // Also run when new elements are added dynamically
+// const observer = new MutationObserver(fixSVGIcons);
+// observer.observe(document.body, { childList: true, subtree: true });
 
 import 'core-js/stable'; // Polyfiling everything else
 import 'regenerator-runtime/runtime'; // Polyfiling async/await
