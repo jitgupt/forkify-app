@@ -12,10 +12,9 @@ import addRecipeView from './views/addRecipeView.js';
 const fixSVGIcons = () => {
   // Get the base URL for production
   const isDev = window.location.hostname === 'localhost';
-  const iconsPath = isDev ? 'src/img/icons.svg' : '../img/icons.svg';
+  const iconsPath = isDev ? 'src/img/icons.svg' : 'src/img/icons.svg';
   
   document.querySelectorAll('use').forEach(el => {
-    console.log("el: ", el);
     
     const href = el.getAttribute('href');
     if (href?.includes('icon-')) {
@@ -23,6 +22,8 @@ const fixSVGIcons = () => {
       el.setAttribute('href', `${iconsPath}#${iconId}`);
       console.log(`Updated SVG to: ${iconsPath}#${iconId}`);
     }
+    console.log("el: ", el);
+
   });
 };
 
