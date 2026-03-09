@@ -12,7 +12,7 @@ import addRecipeView from './views/addRecipeView.js';
 const fixSVGIcons = () => {
   // Get the base URL for production
   const isDev = window.location.hostname === 'localhost';
-  const iconsPath = isDev ? 'src/img/icons.svg' : './src/img/icons.svg';
+  const iconsPath = isDev ? 'src/img/icons.svg' : '../img/icons.svg';
   
   document.querySelectorAll('use').forEach(el => {
     console.log("el: ", el);
