@@ -9,33 +9,33 @@ import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 
 // Fix SVG icon references for production
-// const fixSVGIcons = () => {
-//   // Get the base URL for production
-//   const isDev = window.location.hostname === 'localhost';
-//   const iconsPath = isDev ? 'src/img/icons.svg' : './img/icons.svg';
+const fixSVGIcons = () => {
+  // Get the base URL for production
+  const isDev = window.location.hostname === 'localhost';
+  const iconsPath = isDev ? 'src/img/icons.svg' : './img/icons.svg';
   
-//   document.querySelectorAll('use').forEach(el => {
-//     console.log("el: ", el);
+  document.querySelectorAll('use').forEach(el => {
+    console.log("el: ", el);
     
-//     const href = el.getAttribute('href');
-//     if (href?.includes('icon-')) {
-//       const iconId = href.split('#')[1];
-//       el.setAttribute('href', `${iconsPath}#${iconId}`);
-//       console.log(`Updated SVG to: ${iconsPath}#${iconId}`);
-//     }
-//   });
-// };
+    const href = el.getAttribute('href');
+    if (href?.includes('icon-')) {
+      const iconId = href.split('#')[1];
+      el.setAttribute('href', `${iconsPath}#${iconId}`);
+      console.log(`Updated SVG to: ${iconsPath}#${iconId}`);
+    }
+  });
+};
 
-// // Wait for DOM to be ready before fixing SVG icons
-// if (document.readyState === 'loading') {
-//   document.addEventListener('DOMContentLoaded', fixSVGIcons);
-// } else {
-//   fixSVGIcons();
-// }
+// Wait for DOM to be ready before fixing SVG icons
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', fixSVGIcons);
+} else {
+  fixSVGIcons();
+}
 
-// // Also run when new elements are added dynamically
-// const observer = new MutationObserver(fixSVGIcons);
-// observer.observe(document.body, { childList: true, subtree: true });
+// Also run when new elements are added dynamically
+const observer = new MutationObserver(fixSVGIcons);
+observer.observe(document.body, { childList: true, subtree: true });
 
 import 'core-js/stable'; // Polyfiling everything else
 import 'regenerator-runtime/runtime'; // Polyfiling async/await
